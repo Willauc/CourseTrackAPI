@@ -24,4 +24,12 @@ public class AppConfig {
         if (SMSNotification) {return new NotificationManager(SMS());}
         return new NotificationManager(Email());
     }
+
+    @Bean
+    public UserService userService(
+            InMemoryUserRepository repo,
+            EmailNotificationService emailNotificationService) {
+
+        return new UserService(repo, emailNotificationService);
+    }
 }

@@ -13,8 +13,12 @@ public class CourseTrackApiApplication {
     public static void main(String[] args) {
 
         ApplicationContext context = SpringApplication.run(CourseTrackApiApplication.class, args);
-        var manager = context.getBean(NotificationManager.class);
-        manager.sendNotification("allo");
+
+        var userService = context.getBean(UserService.class);
+
+        User userToAdd = new User(123L, "will", "auc", "tzar@hot.com", "******");
+        userService.registerUser(userToAdd);
+
     }
 
 }

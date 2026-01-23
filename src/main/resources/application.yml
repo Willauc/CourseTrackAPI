@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: CourseTrackAPI
+SMSNotification: false
+email-notification-service:
+  host: codeRed@gmail.com
+  port: 8080

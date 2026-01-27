@@ -18,6 +18,7 @@ public class CourseTrackApiApplication {
 
         User userToAdd = new User(123L, "will", "auc", "tzar@hot.com", "******");
         userService.registerUser(userToAdd);
+        userService.registerUser(userToAdd);
 
     }
 

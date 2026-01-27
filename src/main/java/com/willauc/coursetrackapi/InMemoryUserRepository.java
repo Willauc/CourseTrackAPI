@@ -13,7 +13,11 @@ public class InMemoryUserRepository implements UserRopository{
     }
 
     @Override
-    public void save(User user) {
+    public boolean save(User user) {
+        if (users.containsKey(user.getEmail())){
+            return false;
+        }
         users.put(user.getEmail(), user);
+        return true;
     }
 }

@@ -13,9 +13,11 @@ public class UserService {
     }
 
     public void registerUser(User user) {
-        userRopository.save(user);
+        String message;
 
-        String message = "User :" + user.toString() + " has been registered successfully";
+        if (!userRopository.save(user)){
+            message = "User :" + user.toString() + " is already registered.";
+        }else{message = "User :" + user.toString() + " has been registered successfully.";}
         notificationService.sendNotification(message, user.getEmail());
     }
 }

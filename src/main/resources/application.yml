@@ -1,6 +1,10 @@
 spring:
   application:
     name: CourseTrackAPI
+  datasource:
+    url: jdbc:mysql://localhost:3306/store?createDatabaseIfNotExist=true
+    username: root
+    password: ROOT
 SMSNotification: false
 email-notification-service:
   host: codeRed@gmail.com

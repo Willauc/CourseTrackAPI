@@ -14,11 +14,11 @@ public class CourseTrackApiApplication {
 
         ApplicationContext context = SpringApplication.run(CourseTrackApiApplication.class, args);
 
-        var userService = context.getBean(UserService.class);
+//        var userService = context.getBean(UserService.class);
 
-        User userToAdd = new User(123L, "will", "auc", "tzar@hot.com", "******");
-        userService.registerUser(userToAdd);
-        userService.registerUser(userToAdd);
+//        User userToAdd = new User(123L, "will", "auc", "tzar@hot.com", "******");
+//        userService.registerUser(userToAdd);
+//        userService.registerUser(userToAdd);
 
     }
 

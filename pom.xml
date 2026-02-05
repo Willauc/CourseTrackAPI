@@ -86,8 +86,8 @@
                 <version>11.20.3</version>
                 <configuration>
                         <url>jdbc:mysql://localhost:3306/store?createDatabaseIfNotExist=true</url>
-                        <user>root</user>
-                        <password>ROOT</password>
+                        <user>appuser</user>
+                        <password>APPUSER</password>
                 </configuration>
             </plugin>
 

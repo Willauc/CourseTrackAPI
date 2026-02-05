@@ -6,6 +6,7 @@ import lombok.*;
 import java.time.LocalDate;
 
 
+@ToString
 @Entity
 @Setter
 @Getter
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 public class Profile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Long  id;
 
     @Column(name="bio")
@@ -30,4 +32,9 @@ public class Profile {
     @Column(name="loyaltyPoints")
     private Integer loyaltyPoint;
 
+    @OneToOne
+    @JoinColumn(name= "id")
+    @MapsId
+    @ToString.Exclude
+    private User user;
 }

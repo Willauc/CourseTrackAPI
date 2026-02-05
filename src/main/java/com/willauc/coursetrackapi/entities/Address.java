@@ -3,10 +3,14 @@ package com.willauc.coursetrackapi.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Setter
 @Getter
 @Entity
-@Table(name="adress")
+@Table(name="adresses")
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,5 +28,10 @@ public class Address {
 
     @Column(name="state")
     private String state;
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    @ToString.Exclude
+    private User user;
 
 }

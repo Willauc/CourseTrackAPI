@@ -6,5 +6,4 @@ spring:
     username: appuser
     password: APPUSER
 jpa:
-  hibernate:
-    ddl-auto: create
+  show-sql: true

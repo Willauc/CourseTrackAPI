@@ -1,15 +1,18 @@
 package com.willauc.coursetrackapi.entities;
 
 import jakarta.persistence.*;
-import jdk.jfr.Category;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="products")
 public class Product {
     @Id
@@ -25,6 +28,13 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name="category_id")
-    private categories category;
+    private Categories category;
 
+    void addCategory(Categories category) {
+        this.category = category;
+    }
+
+    @ToString.Exclude
+    @ManyToMany(mappedBy = "products")
+    private Set<User> users = new HashSet<>();
 }

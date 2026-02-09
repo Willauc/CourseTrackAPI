@@ -76,4 +76,28 @@ public class User {
         this.profile = profile;
         profile.setUser(this);
     }
+
+
+    @ManyToMany
+    @JoinTable(
+            name="wishlist",
+            joinColumns = @JoinColumn(name="user_id"),
+            inverseJoinColumns = @JoinColumn(name= "product_id")
+    )
+    @Builder.Default
+    private Set<Product> products = new HashSet<>();
+
+    public void addToWishlist(Product product) {
+        this.products.add(product);
+
+        product.getUsers().add(this);
+
+    }
+
+    public void removeTag(Product product) {
+
+        this.products.remove(product);
+        product.getUsers().remove(this);
+    }
+
 }

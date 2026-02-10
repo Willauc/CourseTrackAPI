@@ -1,5 +1,6 @@
 package com.willauc.coursetrackapi;
 
+import com.willauc.coursetrackapi.Services.UsersServices;
 import com.willauc.coursetrackapi.entities.*;
 import com.willauc.coursetrackapi.repositories.CategoryRepository;
 import com.willauc.coursetrackapi.repositories.ProductRepository;
@@ -19,19 +20,11 @@ public class CourseTrackApiApplication {
     public static void main(String[] args) {
 
         ApplicationContext context = SpringApplication.run(CourseTrackApiApplication.class, args);
+        var service = context.getBean(UsersServices.class);
 
-        var productRepository = context.getBean(ProductRepository.class);
-        var categoryRepository = context.getBean(CategoryRepository.class);
-        var userRepository = context.getBean(UserRepository.class);
+        service.findByLoyaltyPoints(2);
 
 
-        var user = userRepository.findById(4L)
-                .orElseThrow(() -> new IllegalStateException("User not found"));
-
-        productRepository.findAll()
-                .forEach(user::addToWishlist);
-
-        userRepository.save(user);
 
 
 
